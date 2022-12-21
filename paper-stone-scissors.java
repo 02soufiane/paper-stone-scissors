@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class st {
     public static void main(String[] args)
     {
-        int player,pc,N=0,playerscore=0,pcscore=0,pcw=0,plw=0;
+        int player,pc,N=0,pcw=0,plw=0;
         String[] choice = {"paper" , "stone" , "scissors"};
         Scanner s = new Scanner(System.in);
         Random random = new Random();
@@ -17,6 +17,7 @@ public class st {
             player=s.nextInt();
             if(player<3)
             {
+                int playerscore=0,pcscore=0;
                 pc= random.nextInt(3);
                 System.out.println("player:"+choice[player]+ " pc:"+choice[pc]);
                 if(pc==1 && player==0)
@@ -32,16 +33,15 @@ public class st {
                 if(pc==2 && player==0)
                     pcscore++;
                 if(pc==player)
-                    continue;
+                    System.out.println("the same");
 
                 if(pcscore > playerscore)
                 {
                     System.out.println("pc win");
                     pcw++;
-                }else if (pcscore==playerscore)
-                {
-                    System.out.println("pc win");
-                }else {
+                }else if(pcscore==playerscore){
+                    System.out.println("same score now !!");
+                }else{
                     System.out.println("player win");
                     plw++;
                 }
@@ -53,6 +53,9 @@ public class st {
 
         if(pcw > plw)
             System.out.print("-pc win in this match-");
+        else if(pcw==plw)
+            System.out.print("-player equal pc-");
+
         else
             System.out.print("-player win in this match-");
     }
