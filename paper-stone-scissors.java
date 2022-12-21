@@ -32,12 +32,15 @@ public class st {
                 if(pc==2 && player==0)
                     pcscore++;
                 if(pc==player)
-                    System.out.println("the same");
+                    continue;
 
                 if(pcscore > playerscore)
                 {
                     System.out.println("pc win");
                     pcw++;
+                }else if (pcscore==playerscore)
+                {
+                    System.out.println("pc win");
                 }else {
                     System.out.println("player win");
                     plw++;
